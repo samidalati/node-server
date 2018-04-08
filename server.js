@@ -37,6 +37,15 @@ hbs.registerHelper('screamit', (text) => {
     return text.toUpperCase();
 });
 
+app.get('/', (request, response) => {
+    // response.send('<h1>About</h1>');
+    response.render('home.hbs', {
+        pageTitle: 'Home Page',
+        welcomeMessage: 'Welcome to Sami\'s website',
+        currentYear: new Date().getFullYear()
+    })
+});
+
 app.get('/about', (request, response) => {
     // response.send('<h1>About</h1>');
     response.render('about.hbs', {
@@ -45,11 +54,11 @@ app.get('/about', (request, response) => {
     })
 });
 
-app.get('/', (request, response) => {
+app.get('/projects', (request, response) => {
     // response.send('<h1>About</h1>');
-    response.render('home.hbs', {
-        pageTitle: 'Home Page',
-        welcomeMessage: 'Welcome to Sami\'s website',
+    response.render('projects.hbs', {
+        pageTitle: 'Projects Page',
+        welcomeMessage: 'Welcome to my projects page',
         currentYear: new Date().getFullYear()
     })
 });
